@@ -26,8 +26,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 use std::fs;
 use std::fs::File;
 use std::io::{BufRead, BufReader};
+use std::fmt::Display;
 
 pub trait ChallengeT {
+	type Output1: Display;
+	type Output2: Display;
+
 	fn print_result() {
 		println!("{}", Self::result_string());
 	}
@@ -36,8 +40,8 @@ pub trait ChallengeT {
 	}
 
 	fn day() -> i32;
-	fn part_1() -> i32;
-	fn part_2() -> i32;
+	fn part_1() -> Self::Output1;
+	fn part_2() -> Self::Output2;
 }
 
 fn file_path(file_name: &str) -> String {
