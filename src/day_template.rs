@@ -25,15 +25,27 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 use super::common::*;
 
-pub struct Challenge {
-	_dummy: i32,
+pub struct Challenge {}
+impl ChallengeT for Challenge {
+	type Output1 = i32;
+	type Output2 = i32;
+
+	fn day() -> i32 {
+		0
+	}
+	fn part_1() -> Self::Output1 {
+		0
+	}
+	fn part_2() -> Self::Output2 {
+		0
+	}
 }
-impl ChallengeT for Challenge {}
 
 #[cfg(test)]
 mod tests {
-	use crate::common::ChallengeT;
 	use super::Challenge;
+	use crate::common::*;
+	use crate::test::Bencher;
 
 	#[test]
 	fn part_1_test() {
@@ -44,5 +56,15 @@ mod tests {
 	fn part_2_test() {
 		let res = Challenge::part_2();
 		assert_eq!(res, 0);
+	}
+
+	#[bench]
+	fn part_1_bench(b: &mut Bencher) {
+		b.iter(|| 1+1);
+	}
+
+	#[bench]
+	fn part_2_bench(b: &mut Bencher) {
+		b.iter(|| 1+1);
 	}
 }
