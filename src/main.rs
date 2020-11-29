@@ -23,10 +23,13 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
+#![feature(test)]
+extern crate test;
+
 pub mod common;
 use common::ChallengeT;
 
-pub mod day_1;
+pub mod day_6;
 
 use std::env::args;
 
@@ -34,7 +37,7 @@ pub fn main() {
 	for arg in args() {
 		match arg.as_str() {
 			a if a.starts_with("target") => (),
-			"1" => day_1::Challenge::print_result(),
+			"6" => day_6::Challenge::print_result(),
 			_ => println!("ERROR: UNKNOWN ARGUMENT"),
 		}
 	}
