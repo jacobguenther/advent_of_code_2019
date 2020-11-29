@@ -1,5 +1,9 @@
 # Welcome
-This repository is for my efforts at completing this years(2020) [Advent of Code](https://adventofcode.com/2020) challenges.
+This repository is for my efforts at completing the [Advent of Code(2019)](https://adventofcode.com/2019) challenges.
 
 ## Viewing the Answers
 `cargo run <day number>`
+
+## Running tests
+`cargo test`
+`cargo bench`
