@@ -71,6 +71,36 @@ pub fn get_lines_from_file(file_name: &str) -> Vec<String> {
 		.collect()
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, PartialOrd, Eq, Hash)]
+pub struct Vec2<T> {
+	pub x: T,
+	pub y: T,
+}
+impl<T> Vec2<T> {
+	pub fn new(x: T, y: T) -> Vec2<T> {
+		Vec2 {
+			x: x,
+			y: y,
+		}
+	}
+}
+impl From<Vec2<i32>> for Vec2<usize> {
+	fn from(s: Vec2<i32>) -> Vec2<usize> {
+		Vec2 {
+			x: s.x as usize,
+			y: s.y as usize,
+		}
+	}
+}
+impl From<&Vec2<usize>> for Vec2<i32> {
+	fn from(s: &Vec2<usize>) -> Vec2<i32> {
+		Vec2 {
+			x: s.x as i32,
+			y: s.y as i32,
+		}
+	}
+}
+
 #[cfg(test)]
 mod tests {
 	use super::{
